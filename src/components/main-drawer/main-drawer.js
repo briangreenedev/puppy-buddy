@@ -75,7 +75,10 @@ export default function MainDrawer({anchor = 'left', listItems = [], footerItems
 									{list.map((item) => (
 										<ListItem
 											button key={item.name}
-											onClick={() => history.push(`/${item.name.toLowerCase()}`)}>
+											onClick={() => {
+												dispatch({type: 'closeDrawer'})
+												history.push(`/${item.name.toLowerCase()}`)
+											}}>
 											<ListItemIcon className={classes.icon}>{item.icon
 												? item.icon
 												: item[keys.iconKey]}
