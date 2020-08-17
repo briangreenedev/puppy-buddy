@@ -25,6 +25,7 @@ import {
 import {ThemeProvider} from "@material-ui/styles";
 import Logo from "./components/logo";
 import ToolbarSection from "./components/toolbar-section";
+import Tests from "./pages/tests";
 
 const theme = createMuiTheme({
 	palette: {
@@ -36,8 +37,6 @@ const theme = createMuiTheme({
 
 function App() {
 	const [title, setTitle] = useState("Puppy Buddy");
-	debugger
-	const history = useHistory();
 	return (
 		<ThemeProvider theme={theme}>
 			<BrowserRouter>
@@ -100,6 +99,7 @@ function App() {
 				</AppBar>
 				<Route path="/" render={props => <Home {...props} setTitle={setTitle} />} />
 				<Route path="/puppies" render={props => <Puppies {...props} setTitle={setTitle} />} />
+				<Route path="/tests" render={props => <Tests {...props} setTitle={setTitle} />} />
 			</BrowserRouter>
 		</ThemeProvider>
 	);
