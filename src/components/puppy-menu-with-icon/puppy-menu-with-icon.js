@@ -39,11 +39,10 @@ const PuppyMenuWithIcon = ({puppy, items = []}) => {
 					items.map(item => (
 						<MenuItem onClick={() => {
 							handleCloseMenu();
-							return item.handler;
+							item.handler(puppy);
 						}}>{item.name}</MenuItem>
 					))
 				}
-
 			</Menu>
 		</div>
 

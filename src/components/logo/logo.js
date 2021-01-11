@@ -4,12 +4,14 @@ import {makeStyles} from "@material-ui/core/styles";
 const useStyles = makeStyles(theme => ({
 	logoBlock: {
 		backgroundColor: theme.palette.primary.main,
-		position: 'fixed',
-		left: theme.spacing(10),
-		padding: '17px 10px 0px 10px',
+		padding: '0px 7px 12px 7px',
+		marginBottom: '-18px',
+		marginRight: '10px',
 		boxShadow: '0 0 7px #232323',
+		width: '80px',
+		height: '70px',
 		'& > img': {
-			height: theme.spacing(10)
+			width: '100%'
 		}
 	},
 }));

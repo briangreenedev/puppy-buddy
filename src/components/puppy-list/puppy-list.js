@@ -7,11 +7,10 @@ import {
 	ListItemText,
 	ListItemSecondaryAction
 } from "@material-ui/core";
-import IconButton from "@material-ui/core/IconButton";
-import ItemMenuIcon from '@material-ui/icons/MoreVert';
 import {makeStyles} from "@material-ui/core/styles";
 import DueDate from "../due-date";
 import PuppyMenuWithIcon from "../puppy-menu-with-icon";
+import {useHistory} from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
 	secondaryTextContainer: {
@@ -27,24 +26,35 @@ const useStyles = makeStyles(theme => ({
 
 const PuppyList = ({puppies = []}) => {
 	const classes = useStyles();
+	const history = useHistory();
 	const menuItems = [
 		{
 			name: 'Weight',
+			handler: (puppy) => {
+				debugger
+				history.push({
+					pathname: `/puppyweight/${puppy.id}/${puppy.name}`,
+					state: puppy
+				})
+			}
+		},
+		{
+			name: 'Vaccines',
 			handler: (e) => {}
 		},
 		{
-			name: 'Vaccine',
+			name: 'Home Treatments',
 			handler: (e) => {}
 		},
 		{
-			name: 'Medicine',
+			name: 'Photos',
 			handler: (e) => {}
 		}
 	]
 	return (
 		<List>
 			{
-				puppies.map(({name, id, gender, birthDate, lastVaccineDate, nextVaccineDate, sire, dame}) => (
+				puppies.map(({name, id, gender, birthDate, lastVaccineDate, nextVaccineDate, sire, dame, weightPlots}) => (
 					<ListItem alignItems="flex-start">
 						<ListItemAvatar>
 							<Avatar alt={name}
@@ -57,6 +67,7 @@ const PuppyList = ({puppies = []}) => {
 									<div>
 										Gender: {gender} <br/>
 										Birth: {birthDate} <br/>
+										<span style={{fontSize:'.8em', opacity:'.4'}}>No weight data</span>
 									</div>
 									<div>
 										Parents: {sire} & {dame} <br/>

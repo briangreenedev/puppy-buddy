@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
 import {
 	makeStyles
 } from "@material-ui/core";
 import PuppyList from "../../components/puppy-list";
 import usePuppies from "../../custom-hooks/usePuppies";
+import AddPuppy from "../add-puppy";
 
 const useStyles = makeStyles(theme => ({
 	root: {
@@ -20,18 +20,20 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-const Tests = ({setTitle}) => {
+const MyComponents = () => {
 	const classes = useStyles();
-	setTitle('Testing My Components');
-	const [puppies] = usePuppies([]);
+	const puppies = usePuppies();
+
 	return (
 		<Grid container className={classes.root}>
 			<Grid item xs={12}>
-				<h2>Puppies</h2>
+				<AddPuppy/>
+			</Grid>
+			<Grid item xs={12}>
 				<PuppyList puppies={puppies} />
 			</Grid>
 		</Grid>
 	);
 };
 
-export default Tests;
+export default MyComponents;

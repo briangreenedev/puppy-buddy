@@ -19,8 +19,6 @@ const useStyles = makeStyles((theme) => ({
 const Puppies = ({setTitle}) => {
 	const classes = useStyles();
 
-	setTitle('Puppies');
-
 	return (
 		<div className={classes.root}>
 			<Grid container>

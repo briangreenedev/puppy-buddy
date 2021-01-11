@@ -8,6 +8,8 @@ import LitterIcon from '@material-ui/icons/GroupWork';
 import AccountIcon from '@material-ui/icons/AccountCircle';
 import SettingsIcon from '@material-ui/icons/Settings';
 import LogoutIcon from '@material-ui/icons/ExitToApp';
+import ComponentsIcon from '@material-ui/icons/List';
+
 
 export {
 	CustomIcon,
@@ -18,5 +20,6 @@ export {
 	LitterIcon,
 	AccountIcon,
 	SettingsIcon,
-	LogoutIcon
+	LogoutIcon,
+	ComponentsIcon
 };
